@@ -124,15 +124,14 @@ body {
 }
 .orbital-center-text {
   position: absolute;
-  inset: 0;
+  inset: 0 0 auto 0;
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 3;
   pointer-events: none;
   text-align: center;
-  padding: 0 1rem;
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.6);
+  padding: 1.25rem 1rem 0;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.8);
 }
 .orbital-parallax {
   position: relative;
@@ -157,7 +156,7 @@ body {
 }
 .orbital-panel {
   position: absolute;
-  top: 50%;
+  top: 58%;
   left: 50%;
   /* Width/height factors sized well under the geometric safe chord
      (~0.77R for 8 panels) to leave room for perspective's own
