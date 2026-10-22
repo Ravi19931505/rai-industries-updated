@@ -215,3 +215,23 @@ body {
 
 @media (min-width: 640px) { .orbital-stage { --ring-radius: clamp(300px, 38vw, 460px); --pw: 0.62; --ph: 0.84; } }
 @media (min-width: 1024px) { .orbital-stage { --ring-radius: clamp(420px, 34vw, 580px); --pw: 0.6; --ph: 0.8; } }
+
+/* Production line (top-down conveyor) */
+@keyframes belt { from { transform: translateX(0); } to { transform: translateX(28px); } }
+.belt-run { animation: belt 0.9s linear infinite; }
+@keyframes flow { from { transform: translate(-140px, var(--y)); } to { transform: translate(1740px, var(--y)); } }
+.flow { animation: flow var(--dur, 18s) linear infinite; }
+@keyframes flow-reject {
+  0% { transform: translate(-140px, var(--y)); opacity: 1; }
+  77% { transform: translate(1310px, var(--y)); opacity: 1; }
+  88% { transform: translate(1380px, calc(var(--y) + 90px)) rotate(25deg); opacity: 1; }
+  92%, 100% { transform: translate(1380px, calc(var(--y) + 90px)) rotate(25deg); opacity: 0; }
+}
+.flow-reject { animation-name: flow-reject; }
+@keyframes diverter { 0%, 70%, 100% { transform: rotate(0deg); } 74%, 86% { transform: rotate(38deg); } }
+.diverter { animation: diverter 21.6s linear infinite; animation-delay: -7.2s; transform-box: view-box; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin-slow { animation: spin 3s linear infinite; transform-box: view-box; }
+.spin-fast { animation: spin 0.8s linear infinite; transform-box: view-box; }
+@keyframes scan { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(94px); } }
+.scan { animation: scan 2.4s ease-in-out infinite; }

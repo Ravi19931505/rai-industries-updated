@@ -4,6 +4,7 @@ import ScrollProgress from "./components/ScrollProgress";
 import CinematicHero from "./components/CinematicHero";
 import TurningServices from "./components/TurningServices";
 import MachinePark from "./components/MachinePark";
+import ProductionLine from "./components/ProductionLine";
 import { AmbientLight, Cursor, IndustryMarquee } from "./components/Ambient";
 import Stats from "./components/Stats";
 import TechnicalDrawing from "./components/TechnicalDrawing";
@@ -39,6 +40,7 @@ export default function App() {
           <Stats />
           <IndustryMarquee />
           <TurningServices />
+          <ProductionLine />
           <TechnicalDrawing />
           <About />
           <Capabilities />
