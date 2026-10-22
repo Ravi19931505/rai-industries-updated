@@ -74,11 +74,11 @@ export default function CinematicHero() {
               >
                 <p className="font-mono text-[11px] md:text-xs tracking-[0.25em] uppercase text-brass mb-6">{s.eyebrow}</p>
                 {i === 0 ? (
-                  <h1 className="font-display font-extrabold uppercase leading-[0.88]" style={{ fontSize: "clamp(2.75rem, 8.5vw, 7.5rem)" }}>
+                  <h1 className="font-display font-extrabold uppercase leading-[0.88]" style={{ fontSize: "clamp(2.5rem, min(8.5vw, 10vh), 7.5rem)" }}>
                     {s.title[0]}<br /><span className="text-brass">{s.title[1]}</span>
                   </h1>
                 ) : (
-                  <p className="font-display font-extrabold uppercase leading-[0.88]" style={{ fontSize: "clamp(2.75rem, 8.5vw, 7.5rem)" }}>
+                  <p className="font-display font-extrabold uppercase leading-[0.88]" style={{ fontSize: "clamp(2.5rem, min(8.5vw, 10vh), 7.5rem)" }}>
                     {s.title[0]}<br /><span className="text-brass">{s.title[1]}</span>
                   </p>
                 )}
