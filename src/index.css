@@ -104,14 +104,16 @@ body {
    backface-visibility hidden so panels rotated away from camera disappear
    instead of showing a mirrored image. */
 .orbital-stage {
-  --ring-radius: clamp(140px, 28vw, 380px);
+  --ring-radius: clamp(210px, 58vw, 300px);
+  --pw: 0.72;
+  --ph: 0.98;
   /* Perspective must stay large relative to --ring-radius, or CSS's own
      foreshortening (scale = perspective / (perspective - z)) magnifies the
      front-facing panels well past their nominal box size — that extra,
      un-budgeted growth is what was re-causing the overlap. At radius 380,
      1100px perspective gave up to 1.53× magnification; 2200px keeps the
      worst case near 1.2×. */
-  perspective: 2200px;
+  perspective: 2600px;
   touch-action: pan-y;
   cursor: grab;
   overflow: hidden;
@@ -161,8 +163,8 @@ body {
      (~0.77R for 8 panels) to leave room for perspective's own
      magnification of near panels (~1.2× at this radius/perspective ratio)
      — and to leave a visible gap for the center text to show through. */
-  width: calc(var(--ring-radius) * 0.42);
-  height: calc(var(--ring-radius) * 0.56);
+  width: calc(var(--ring-radius) * var(--pw));
+  height: calc(var(--ring-radius) * var(--ph));
   backface-visibility: hidden;
   will-change: transform, opacity;
   transition: box-shadow 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
@@ -211,3 +213,6 @@ body {
 .marquee-track { animation: marquee 38s linear infinite; }
 .text-outline { -webkit-text-stroke: 1px var(--color-hairline); color: transparent; }
 .glass { background: rgba(255,255,255,.035); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.08); }
+
+@media (min-width: 640px) { .orbital-stage { --ring-radius: clamp(300px, 38vw, 460px); --pw: 0.62; --ph: 0.84; } }
+@media (min-width: 1024px) { .orbital-stage { --ring-radius: clamp(420px, 34vw, 580px); --pw: 0.6; --ph: 0.8; } }

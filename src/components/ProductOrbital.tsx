@@ -51,7 +51,7 @@ export default function ProductOrbital() {
 
     let rotation = 0;
     let velocity = 0;
-    const baseDrift = reduceMotion ? 0 : 0.14;
+    const baseDrift = reduceMotion ? 0 : 0.18;
     const friction = 0.94;
     const MAX_VELOCITY = 8;
     const DRAG_SENS = 0.32;
@@ -150,7 +150,7 @@ export default function ProductOrbital() {
     stage.addEventListener("keydown", onKeyDown);
 
     let raf = 0;
-    function frame() {
+    function frame(time: number) {
       if (!dragging) {
         rotation += baseDrift + velocity;
         velocity *= friction;
@@ -166,8 +166,14 @@ export default function ProductOrbital() {
         const rad = (effAngle * Math.PI) / 180;
         const factor = Math.cos(rad); // 1 = facing camera, -1 = facing away
         const t = (factor + 1) / 2; // 0..1
-        const opacity = 0.32 + t * 0.68;
-        panel.style.transform = `translate(-50%, -50%) rotateY(${effAngle}deg) translateZ(${r}px)`;
+        const opacity = 0.28 + t * 0.72;
+        // Up/down wave: each panel bobs on a sine of its ring angle, and the
+        // ring's current spin velocity adds a momentum lift — flick it and
+        // the panels ride up and settle back as friction slows the spin.
+        const wave = reduceMotion ? 0 : Math.sin(rad * 2 + time / 900) * r * 0.06;
+        const lift = reduceMotion ? 0 : velocity * Math.sin(rad) * r * 0.035;
+        const scale = 0.82 + t * 0.18;
+        panel.style.transform = `translate(-50%, -50%) rotateY(${effAngle}deg) translateZ(${r}px) translateY(${(wave + lift).toFixed(1)}px) scale(${scale.toFixed(3)})`;
         panel.style.opacity = opacity.toFixed(2);
         if (factor > frontFactor) {
           frontFactor = factor;
@@ -202,7 +208,7 @@ export default function ProductOrbital() {
     <div>
       <div
         ref={stageRef}
-        className="orbital-stage relative w-full aspect-[4/5] sm:aspect-[16/9] md:aspect-[21/9] select-none outline-none"
+        className="orbital-stage relative w-full aspect-[3/4] sm:aspect-[4/3] lg:aspect-[16/9] select-none outline-none"
         tabIndex={0}
         role="group"
         aria-label="Product catalogue — drag, scroll, or use arrow keys to rotate"
@@ -230,11 +236,11 @@ export default function ProductOrbital() {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent pointer-events-none" />
-                    <div className="absolute bottom-0 inset-x-0 p-3 pointer-events-none">
-                      <span className="font-mono text-[9px] tracking-[0.15em] text-steel/70">
+                    <div className="absolute bottom-0 inset-x-0 p-3 md:p-5 pointer-events-none">
+                      <span className="font-mono text-[10px] md:text-xs tracking-[0.15em] text-steel/80">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <p className="font-display font-semibold uppercase text-sm text-paper leading-tight">
+                      <p className="font-display font-semibold uppercase text-base md:text-2xl text-paper leading-tight">
                         {p.name}
                       </p>
                     </div>
