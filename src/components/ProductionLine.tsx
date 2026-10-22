@@ -95,7 +95,7 @@ export default function ProductionLine() {
 
       <motion.div style={{ rotateX: tilt, scale, transformPerspective: 1600 }} className="relative">
         <div className="overflow-x-auto md:overflow-visible [scrollbar-width:none]">
-          <svg viewBox={`0 0 ${W} 560`} className="block min-w-[1100px] w-full h-auto" role="img" aria-label="Animated top-down view of the R.A.I Industries production line: raw bars enter CNC turning, shafts move to grinding, finished parts pass inspection and go to dispatch">
+          <svg viewBox={`0 0 ${W} 560`} className="block min-w-[1100px] md:min-w-0 w-full h-auto" role="img" aria-label="Animated top-down view of the R.A.I Industries production line: raw bars enter CNC turning, shafts move to grinding, finished parts pass inspection and go to dispatch">
             <defs>
               <pattern id="chev" width="28" height="92" patternUnits="userSpaceOnUse">
                 <path d="M4,10 l10,8 l-10,8 M4,40 l10,8 l-10,8 M4,70 l10,8 l-10,8" fill="none" stroke="#26272b" strokeWidth="2" />
