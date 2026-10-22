@@ -213,7 +213,7 @@ export default function ProductOrbital() {
         role="group"
         aria-label="Product catalogue — drag, scroll, or use arrow keys to rotate"
       >
-        <div className="orbital-center-text" aria-hidden="true">
+        <div className="orbital-center-text hidden! sm:flex!" aria-hidden="true">
           <Reveal>
             <h3 className="font-display font-extrabold uppercase text-paper leading-[0.9]">
               <span className="block text-[10vw] sm:text-[6vw] md:text-[4.5vw]">Precision</span>

@@ -104,9 +104,9 @@ body {
    backface-visibility hidden so panels rotated away from camera disappear
    instead of showing a mirrored image. */
 .orbital-stage {
-  --ring-radius: clamp(210px, 58vw, 300px);
-  --pw: 0.72;
-  --ph: 0.98;
+  --ring-radius: clamp(240px, 70vw, 330px);
+  --pw: 0.8;
+  --ph: 1.08;
   /* Perspective must stay large relative to --ring-radius, or CSS's own
      foreshortening (scale = perspective / (perspective - z)) magnifies the
      front-facing panels well past their nominal box size — that extra,
