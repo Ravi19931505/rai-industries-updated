@@ -188,3 +188,26 @@ body {
     border-color: var(--color-brass);
   }
 }
+
+/* Lathe chips fly off the tool tip */
+@keyframes chip-fly {
+  0% { transform: translate(0, 0); opacity: 1; }
+  100% { transform: translate(-26px, 34px); opacity: 0; }
+}
+.chip { animation: chip-fly 0.7s linear infinite; transform-box: fill-box; }
+
+/* Ambient brass light layer */
+.ambient-bg { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; mix-blend-mode: screen; }
+
+/* Custom cursor (fine pointers only) */
+.cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 120; border-radius: 9999px; }
+.cursor-dot { width: 6px; height: 6px; background: var(--color-brass-bright); margin: -3px 0 0 -3px; }
+.cursor-ring { width: 36px; height: 36px; margin: -18px 0 0 -18px; border: 1px solid rgba(211,172,116,.6); transition: width .25s var(--ease-out), height .25s var(--ease-out), margin .25s var(--ease-out), background .25s; }
+.cursor-ring.is-hover { width: 64px; height: 64px; margin: -32px 0 0 -32px; background: rgba(176,141,87,.12); }
+@media (hover: hover) and (pointer: fine) { .has-cursor, .has-cursor a, .has-cursor button { cursor: none; } }
+
+/* Marquee */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 38s linear infinite; }
+.text-outline { -webkit-text-stroke: 1px var(--color-hairline); color: transparent; }
+.glass { background: rgba(255,255,255,.035); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.08); }

@@ -3,11 +3,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import MagneticButton from "./MagneticButton";
 
 const links = [
-  { label: "About", href: "#about" },
+  { label: "Turning", href: "#turning" },
   { label: "Capabilities", href: "#capabilities" },
+  { label: "Machines", href: "#machines" },
   { label: "Process", href: "#process" },
   { label: "Products", href: "#products" },
-  { label: "Shop Floor", href: "#shop-floor" },
   { label: "Contact", href: "#contact" },
 ];
 

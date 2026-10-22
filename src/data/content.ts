@@ -163,3 +163,38 @@ export const photos = {
   about: aboutPhoto,
   productShaft: productShaftPhoto,
 };
+
+// ── Turning & job-work (added Oct 2026) ─────────────────────────────────
+export const turningServices = [
+  { title: "Job Work Turning", body: "Send your drawing or a sample — we turn it on our CNC lathes and deliver to your schedule, from 50 pieces to repeat production runs." },
+  { title: "Shafts & Pins", body: "Pinion shafts, PTO shafts, king pins, stub axles and spindles with stepped diameters, threads and keyways." },
+  { title: "Hubs, Flanges & Bushes", body: "Flange hubs, wheel hubs, gear blanks and bushes in steel, cast iron and bronze — faced, bored and finished." },
+  { title: "Reverse Engineering", body: "No drawing? We measure your sample, prepare the dimensions and machine an exact replacement." },
+];
+
+export const jobWorkTerms = [
+  { value: "Drawing / Sample", label: "Accepted Input" },
+  { value: "Prototype → Batch", label: "Order Size" },
+  { value: "±5µm", label: "Critical Tolerance" },
+  { value: "In-House", label: "Inspection Report" },
+];
+
+// Machine park — placeholder specs until the client shares the real machine
+// list (models, max turning Ø / length). Photos reuse existing AI shots.
+import mTurn from "../assets/photos/capabilities/cnc-turning.webp";
+import mBay from "../assets/photos/shopfloor/cnc-turning-bay.webp";
+import mMill from "../assets/photos/capabilities/cnc-milling.webp";
+import mGrind from "../assets/photos/capabilities/cylindrical-grinding.webp";
+import mHone from "../assets/photos/capabilities/honing.webp";
+import mQc from "../assets/photos/shopfloor/quality-inspection.webp";
+import mFab from "../assets/photos/capabilities/welding-fabrication.webp";
+
+export const machines: { name: string; type: string; spec: string; photo?: string }[] = [
+  { name: "CNC Lathe 01", type: "CNC Turning Centre", spec: "Shafts, pins and stepped components — production batches.", photo: mTurn },
+  { name: "CNC Lathe 02", type: "CNC Turning Centre", spec: "Hubs, flanges and bored components.", photo: mBay },
+  { name: "CNC Lathe 03 & 04", type: "CNC Turning Centres", spec: "Repeat runs and job-work capacity.", photo: mMill },
+  { name: "Cylindrical Grinder", type: "Finishing", spec: "Diameter and roundness control on shafts and pins.", photo: mGrind },
+  { name: "Honing Machine", type: "Bore Finishing", spec: "Precise bore size, roundness and surface texture.", photo: mHone },
+  { name: "Inspection Lab", type: "Quality", spec: "In-process and final dimensional checks against drawing.", photo: mQc },
+  { name: "Fabrication Bay", type: "Laser · Bending · Welding", spec: "Sheet profiling, forming and structural assemblies.", photo: mFab },
+];

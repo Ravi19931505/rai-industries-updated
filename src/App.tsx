@@ -1,7 +1,10 @@
 import { MotionConfig } from "framer-motion";
 import Nav from "./components/Nav";
 import ScrollProgress from "./components/ScrollProgress";
-import Hero from "./components/Hero";
+import CinematicHero from "./components/CinematicHero";
+import TurningServices from "./components/TurningServices";
+import MachinePark from "./components/MachinePark";
+import { AmbientLight, Cursor, IndustryMarquee } from "./components/Ambient";
 import Stats from "./components/Stats";
 import TechnicalDrawing from "./components/TechnicalDrawing";
 import About from "./components/About";
@@ -27,14 +30,19 @@ export default function App() {
         >
           Skip to content
         </a>
+        <AmbientLight />
+        <Cursor />
         <Nav />
         <ScrollProgress />
-        <main id="main">
-          <Hero />
+        <main id="main" className="relative z-[2]">
+          <CinematicHero />
           <Stats />
+          <IndustryMarquee />
+          <TurningServices />
           <TechnicalDrawing />
           <About />
           <Capabilities />
+          <MachinePark />
           <Process />
           <Products />
           <Materials />
