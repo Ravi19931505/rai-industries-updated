@@ -44,9 +44,15 @@ export default function ProductOrbital() {
     const count = panels.length;
     const baseAngles = panels.map((_, i) => (360 / count) * i);
 
+    // Radius is derived from the panel's real rendered width, not the CSS
+    // var (getPropertyValue returns the unresolved clamp() string). For N
+    // panels on a regular polygon, edges meet when width = 2R·tan(π/N); we
+    // keep a 15% gap beyond that so neighbours can never intersect, even
+    // with the wave offset and front-panel scale.
     function radius() {
-      const raw = getComputedStyle(stage!).getPropertyValue("--ring-radius");
-      return parseFloat(raw) || 240;
+      const w = panels[0]?.offsetWidth || 200;
+      const minR = w / (2 * Math.tan(Math.PI / count));
+      return minR * 1.15;
     }
 
     let rotation = 0;
