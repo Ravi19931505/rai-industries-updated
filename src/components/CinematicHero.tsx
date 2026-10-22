@@ -56,9 +56,9 @@ export default function CinematicHero() {
         </div>
         <Readout p={p} />
 
-        <div className="relative z-10 h-full max-w-[1600px] mx-auto px-6 md:px-10 grid lg:grid-cols-[1fr_1.1fr] items-center gap-6 pt-20 pb-40 md:pb-48">
+        <div className="relative z-10 h-full max-w-[1600px] mx-auto px-6 md:px-10 flex flex-col justify-center lg:grid lg:grid-cols-[1fr_1.1fr] lg:items-center gap-4 lg:gap-6 pt-24 pb-44 md:pb-48">
           {/* Staged headline */}
-          <div className="relative min-h-[300px] md:min-h-[360px]">
+          <div className="relative min-h-[300px] md:min-h-[330px] lg:min-h-[380px]">
             {stages.map((s, i) => (
               <motion.div
                 key={s.eyebrow}
@@ -88,7 +88,7 @@ export default function CinematicHero() {
           </div>
 
           {/* Lathe */}
-          <div className="relative hidden sm:block">
+          <div className="relative hidden sm:block w-full max-w-[520px] lg:max-w-none self-center lg:self-auto">
             <Lathe p={p} />
           </div>
         </div>
@@ -106,7 +106,7 @@ export default function CinematicHero() {
                 Est. 1979 · Ludhiana · MSME · ISO Certified
               </p>
               <div className="flex flex-wrap gap-3">
-                <MagneticButton href="#turning" className="inline-flex items-center gap-2 px-6 py-3.5 border border-hairline text-paper font-mono text-xs tracking-[0.15em] uppercase hover:border-brass hover:text-brass transition-colors">
+                <MagneticButton href="#turning" className="hidden sm:inline-flex items-center gap-2 px-6 py-3.5 border border-hairline text-paper font-mono text-xs tracking-[0.15em] uppercase hover:border-brass hover:text-brass transition-colors">
                   Turning &amp; Job Work <span aria-hidden>→</span>
                 </MagneticButton>
                 <MagneticButton href="#contact" className="inline-flex items-center gap-2 px-6 py-3.5 bg-brass text-ink font-mono text-xs tracking-[0.15em] uppercase hover:bg-brass-bright transition-colors">
